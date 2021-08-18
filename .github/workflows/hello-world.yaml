@@ -6,4 +6,4 @@ jobs:
     container: gradle:6-jdk11
     steps:
       - uses: actions/checkout@v2
-        run: ci/build-app.sh
+      - run: ci/build-app.sh
