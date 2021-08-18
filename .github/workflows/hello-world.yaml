@@ -2,7 +2,6 @@ name: Java CI
 on: push
 jobs:
   Clone-down:
-    needs:
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
     steps:
@@ -26,4 +25,3 @@ jobs:
     steps:
       - name: Unit Test
         run: ci/unit-test-app.sh
-
