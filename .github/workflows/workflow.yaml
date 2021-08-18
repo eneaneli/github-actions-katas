@@ -43,8 +43,7 @@ jobs:
       - name: Unit Test
         run: chmod +x ci/unit-test-app.sh && ci/unit-test-app.sh
   Docker-image:
-    needs: Build
-    needs: Test
+    needs: [Build, Test]
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
     steps:
