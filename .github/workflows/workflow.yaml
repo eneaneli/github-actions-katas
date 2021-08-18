@@ -55,3 +55,14 @@ jobs:
         run: bash ci/build-docker.sh && export GIT_COMMIT="GA-$GITHUB_SHA"
       - name: Push Docker
         run: bash ci/push-docker.sh && export GIT_COMMIT="GA-$GITHUB_SHA"
+  Component-test:
+    needs: Docker-image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download a single artifact from build
+        uses: actions/download-artifact@v2
+        with:
+          name: codeBuild
+          path: .
+      - name: Component test
+        run: bash ci/component-test.sh && export GIT_COMMIT="GA-$GITHUB_SHA"
