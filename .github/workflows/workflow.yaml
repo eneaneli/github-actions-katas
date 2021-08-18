@@ -53,10 +53,8 @@ jobs:
         with:
           name: codeBuild
           path: .
-      - name: Use github sha
-        uses: export GIT_COMMIT="GA-$GITHUB_SHA"
       - name: Build Docker
-        run: ci/build-docker.sh
+        run: ci/build-docker.sh && export GIT_COMMIT="GA-$GITHUB_SHA"
       - name: Push Docker
-        run: ci/push-docker.sh 
+        run: ci/push-docker.sh && export GIT_COMMIT="GA-$GITHUB_SHA"
 
