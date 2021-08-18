@@ -27,7 +27,7 @@ jobs:
           path: .
       - name: Build
         run: chmod +x ci/build-app.sh && ci/build-app.sh
-        uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v2
         with:
           name: codeBuild
           path: .
