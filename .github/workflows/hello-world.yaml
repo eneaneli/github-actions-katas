@@ -7,3 +7,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: ci/build-app.sh
+      - run: ci/unit-test-app.sh
